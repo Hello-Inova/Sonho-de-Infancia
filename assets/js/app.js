@@ -182,19 +182,19 @@
             avaliacoes:[
 
                 {
-                    src:"assets/img/avaliacoes/1.png"
+                    src:"assets/img/avaliacoes/1.jpeg"
                 },
 
                 {
-                    src:"assets/img/avaliacoes/2.png"
+                    src:"assets/img/avaliacoes/2.jpeg"
                 },
 
                 {
-                    src:"assets/img/avaliacoes/3.png"
+                    src:"assets/img/avaliacoes/3.jpeg"
                 },
 
                 {
-                    src:"assets/img/avaliacoes/4.png"
+                    src:"assets/img/avaliacoes/4.jpeg"
                 },
                         {
                     src:"assets/img/avaliacoes/5.png"
@@ -613,6 +613,95 @@
                 behavior: 'smooth'
             });
         });
+
+        const partnersTrack = document.querySelector(".partners-carousel__track");
+        const partnerCards = [...document.querySelectorAll(".partners-carousel__track .partner-card")];
+        const partnersDots = document.querySelector(".partners-carousel__dots");
+
+        if (partnersTrack && partnerCards.length) {
+
+            let current = 0;
+
+            function visibleCards() {
+                if (window.innerWidth <= 680) return 1;
+                if (window.innerWidth <= 900) return 2;
+                return 3;
+            }
+
+            function pages() {
+                return Math.ceil(partnerCards.length / visibleCards());
+            }
+
+            function renderDots() {
+
+                partnersDots.innerHTML = "";
+
+                for (let i = 0; i < pages(); i++) {
+
+                    const dot = document.createElement("button");
+
+                    if (i === current)
+                        dot.classList.add("active");
+
+                    dot.onclick = () => {
+
+                        current = i;
+
+                        updateCarousel();
+
+                    };
+
+                    partnersDots.appendChild(dot);
+
+                }
+
+            }
+
+            function updateCarousel() {
+
+                const cardsVisible = visibleCards();
+
+                const gap = 24;
+
+                const cardWidth = partnerCards[0].offsetWidth + gap;
+
+                partnersTrack.style.transform =
+                    `translateX(-${current * cardWidth * cardsVisible}px)`;
+
+                [...partnersDots.children].forEach((dot, index) => {
+
+                    dot.classList.toggle("active", index === current);
+
+                });
+
+            }
+
+            renderDots();
+
+            updateCarousel();
+
+            window.addEventListener("resize", () => {
+
+                current = 0;
+
+                renderDots();
+
+                updateCarousel();
+
+            });
+
+            setInterval(() => {
+
+                current++;
+
+                if (current >= pages())
+                    current = 0;
+
+                updateCarousel();
+
+            }, 4000);
+
+        }
 
         /* ======================================================
         CARROSSEL DA IDENTIDADE VISUAL

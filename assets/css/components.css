@@ -1103,10 +1103,27 @@ body.has-pointer .cursor-glow{opacity:1}
     right:-20px;
 
 }
+.partners-carousel{
+    overflow:hidden;
+}
+
+.partners-carousel__viewport{
+    overflow:hidden;
+}
+
+.partners-carousel__track{
+    display:flex;
+    gap:24px;
+    transition:transform .45s ease;
+}
+
+.partners-carousel__track .partner-card{
+    flex:0 0 calc((100% - 48px)/3);
+}
 
 /* Indicadores */
 .section{
-    padding: 40px 0;
+    padding: 80px 0;
 }
 
 .testimonials-carousel__dots{
