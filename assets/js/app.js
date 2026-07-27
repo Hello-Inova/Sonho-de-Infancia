@@ -661,7 +661,7 @@
 
                 const cardsVisible = visibleCards();
 
-                const gap = 24;
+                const gap = parseFloat(getComputedStyle(partnersTrack).columnGap) || 24;
 
                 const cardWidth = partnerCards[0].offsetWidth + gap;
 
