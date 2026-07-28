@@ -651,6 +651,9 @@
 
                     const dot = document.createElement("button");
 
+                    dot.type = "button";
+                    dot.className = "partners-carousel__dot";
+
                     if (i === current)
                         dot.classList.add("active");
 
@@ -896,96 +899,94 @@
         }
 
         /* ======================================================
-        CARROSSEL DO PARQUE INFANTIL
+        MINI-CARROSSÉIS DA GALERIA (Parque Infantil, Berçário, ...)
         ====================================================== */
 
-        const parqueCarousel = document.querySelector('.parque-carousel');
+        document.querySelectorAll('.gallery-carousel').forEach((galleryCarousel) => {
 
-        if (parqueCarousel) {
-
-            const parqueTrack = parqueCarousel.querySelector(
-                '.parque-carousel__track'
+            const track = galleryCarousel.querySelector(
+                '.gallery-carousel__track'
             );
 
-            const parqueSlides = [
-                ...parqueCarousel.querySelectorAll(
-                    '.parque-carousel__slide'
+            const slides = [
+                ...galleryCarousel.querySelectorAll(
+                    '.gallery-carousel__slide'
                 )
             ];
 
-            const parquePrevButton = parqueCarousel.querySelector(
-                '.parque-carousel__button--prev'
+            const prevButton = galleryCarousel.querySelector(
+                '.gallery-carousel__button--prev'
             );
 
-            const parqueNextButton = parqueCarousel.querySelector(
-                '.parque-carousel__button--next'
+            const nextButton = galleryCarousel.querySelector(
+                '.gallery-carousel__button--next'
             );
 
-            const parqueDots = [
-                ...parqueCarousel.querySelectorAll(
-                    '.parque-carousel__dot'
+            const dots = [
+                ...galleryCarousel.querySelectorAll(
+                    '.gallery-carousel__dot'
                 )
             ];
 
-            let parqueCurrentSlide = 0;
+            let currentSlide = 0;
 
-            const updateParqueCarousel = () => {
+            const updateGalleryCarousel = () => {
 
-                if (!parqueTrack || parqueSlides.length === 0) return;
+                if (!track || slides.length === 0) return;
 
-                parqueTrack.style.transform =
-                    `translateX(-${parqueCurrentSlide * 100}%)`;
+                track.style.transform =
+                    `translateX(-${currentSlide * 100}%)`;
 
-                parqueDots.forEach((dot, index) => {
+                dots.forEach((dot, index) => {
 
                     dot.classList.toggle(
                         'active',
-                        index === parqueCurrentSlide
+                        index === currentSlide
                     );
 
                 });
 
             };
 
-            parqueNextButton?.addEventListener('click', (event) => {
+            nextButton?.addEventListener('click', (event) => {
 
                 event.stopPropagation();
 
-                parqueCurrentSlide =
-                    (parqueCurrentSlide + 1) % parqueSlides.length;
+                currentSlide =
+                    (currentSlide + 1) % slides.length;
 
-                updateParqueCarousel();
+                updateGalleryCarousel();
 
             });
 
-            parquePrevButton?.addEventListener('click', (event) => {
+            prevButton?.addEventListener('click', (event) => {
 
                 event.stopPropagation();
 
-                parqueCurrentSlide =
-                    (parqueCurrentSlide - 1 + parqueSlides.length)
-                    % parqueSlides.length;
+                currentSlide =
+                    (currentSlide - 1 + slides.length)
+                    % slides.length;
 
-                updateParqueCarousel();
+                updateGalleryCarousel();
 
             });
 
-            parqueDots.forEach((dot, index) => {
+            dots.forEach((dot, index) => {
 
                 dot.addEventListener('click', (event) => {
 
                     event.stopPropagation();
 
-                    parqueCurrentSlide = index;
-                    updateParqueCarousel();
+                    currentSlide = index;
+                    updateGalleryCarousel();
 
                 });
 
             });
 
-            updateParqueCarousel();
+            updateGalleryCarousel();
 
-        }
+        });
 
         const carousel = document.querySelector(".testimonials-carousel");
 
