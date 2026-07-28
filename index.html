@@ -349,7 +349,56 @@
         <div class="gallery">
           <figure class="gallery__item gallery__item--wide reveal" data-lightbox><img src="assets/img/Sala Atelie.jpeg" alt="Atelie" loading="lazy"><figcaption>Ateliê</figcaption></figure>
           <figure class="gallery__item gallery__item--tall reveal" data-lightbox><img src="assets/img/Sala Maternal.jpeg" alt="Maternal" loading="lazy"><figcaption>Maternal</figcaption></figure>
-          <figure class="gallery__item reveal" data-lightbox><img src="assets/img/Parque Infantil.jpeg" alt="Parque Infantil" loading="lazy"><figcaption>Parque Infantil</figcaption></figure>
+          <figure class="gallery__item parque-carousel reveal">
+
+              <div class="parque-carousel__viewport">
+
+                  <div class="parque-carousel__track">
+
+                      <div class="parque-carousel__slide">
+                          <img
+                              src="assets/img/Parque Infantil.jpeg"
+                              alt="Parque Infantil"
+                              loading="lazy"
+                              data-lightbox
+                              data-album="parqueInfantil">
+                          <span class="parque-carousel__caption">Parque Infantil</span>
+                      </div>
+
+                      <div class="parque-carousel__slide">
+                          <img
+                              src="assets/img/Parque Baby.jpeg"
+                              alt="Parque Baby"
+                              loading="lazy"
+                              data-lightbox
+                              data-album="parqueInfantil">
+                          <span class="parque-carousel__caption">Parque Baby</span>
+                      </div>
+
+                  </div>
+
+              </div>
+
+              <button
+                  class="parque-carousel__button parque-carousel__button--prev"
+                  type="button"
+                  aria-label="Imagem anterior">
+                  ‹
+              </button>
+
+              <button
+                  class="parque-carousel__button parque-carousel__button--next"
+                  type="button"
+                  aria-label="Próxima imagem">
+                  ›
+              </button>
+
+              <div class="parque-carousel__dots">
+                  <button class="parque-carousel__dot active" type="button" aria-label="Exibir Parque Infantil"></button>
+                  <button class="parque-carousel__dot" type="button" aria-label="Exibir Parque Baby"></button>
+              </div>
+
+          </figure>
           <!--<figure class="gallery__item reveal" data-lightbox><img src="assets/img/submarca-criancas.jpg" alt="Crianças brincando" loading="lazy"><figcaption>Berçario</figcaption></figure>-->
           <figure class="gallery__item reveal" data-lightbox data-album="bercario"><img src="assets/img/bercario.jpeg" alt="Berçário" loading="lazy"><figcaption>Berçário<br><span>2 fotos</span></figcaption></figure>      
         </div>

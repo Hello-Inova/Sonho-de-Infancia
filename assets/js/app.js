@@ -179,6 +179,17 @@
                     alt: 'Outra visão da Sala Maternal'
                 }
             ],
+
+            parqueInfantil: [
+                {
+                    src: 'assets/img/Parque Infantil.jpeg',
+                    alt: 'Parque Infantil'
+                },
+                {
+                    src: 'assets/img/Parque Baby.jpeg',
+                    alt: 'Parque Baby'
+                }
+            ],
             avaliacoes:[
 
                 {
@@ -881,6 +892,98 @@
 
             updateBrandCarousel();
             startAutoplay();
+
+        }
+
+        /* ======================================================
+        CARROSSEL DO PARQUE INFANTIL
+        ====================================================== */
+
+        const parqueCarousel = document.querySelector('.parque-carousel');
+
+        if (parqueCarousel) {
+
+            const parqueTrack = parqueCarousel.querySelector(
+                '.parque-carousel__track'
+            );
+
+            const parqueSlides = [
+                ...parqueCarousel.querySelectorAll(
+                    '.parque-carousel__slide'
+                )
+            ];
+
+            const parquePrevButton = parqueCarousel.querySelector(
+                '.parque-carousel__button--prev'
+            );
+
+            const parqueNextButton = parqueCarousel.querySelector(
+                '.parque-carousel__button--next'
+            );
+
+            const parqueDots = [
+                ...parqueCarousel.querySelectorAll(
+                    '.parque-carousel__dot'
+                )
+            ];
+
+            let parqueCurrentSlide = 0;
+
+            const updateParqueCarousel = () => {
+
+                if (!parqueTrack || parqueSlides.length === 0) return;
+
+                parqueTrack.style.transform =
+                    `translateX(-${parqueCurrentSlide * 100}%)`;
+
+                parqueDots.forEach((dot, index) => {
+
+                    dot.classList.toggle(
+                        'active',
+                        index === parqueCurrentSlide
+                    );
+
+                });
+
+            };
+
+            parqueNextButton?.addEventListener('click', (event) => {
+
+                event.stopPropagation();
+
+                parqueCurrentSlide =
+                    (parqueCurrentSlide + 1) % parqueSlides.length;
+
+                updateParqueCarousel();
+
+            });
+
+            parquePrevButton?.addEventListener('click', (event) => {
+
+                event.stopPropagation();
+
+                parqueCurrentSlide =
+                    (parqueCurrentSlide - 1 + parqueSlides.length)
+                    % parqueSlides.length;
+
+                updateParqueCarousel();
+
+            });
+
+            parqueDots.forEach((dot, index) => {
+
+                dot.addEventListener('click', (event) => {
+
+                    event.stopPropagation();
+
+                    parqueCurrentSlide = index;
+                    updateParqueCarousel();
+
+                });
+
+            });
+
+            updateParqueCarousel();
 
         }
 
