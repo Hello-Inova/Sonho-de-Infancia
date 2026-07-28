@@ -197,26 +197,26 @@
                     src:"assets/img/avaliacoes/4.jpeg"
                 },
                         {
-                    src:"assets/img/avaliacoes/5.png"
+                    src:"assets/img/avaliacoes/5.jpeg"
                 },
 
                 {
-                    src:"assets/img/avaliacoes/6.png"
+                    src:"assets/img/avaliacoes/6.jpeg"
                 },
 
                 {
-                    src:"assets/img/avaliacoes/7.png"
+                    src:"assets/img/avaliacoes/7.jpeg"
                 },
                         {
-                    src:"assets/img/avaliacoes/8.png"
+                    src:"assets/img/avaliacoes/8.jpeg"
                 },
 
                 {
-                    src:"assets/img/avaliacoes/9.png"
+                    src:"assets/img/avaliacoes/9.jpeg"
                 },
 
                 {
-                    src:"assets/img/avaliacoes/10.png"
+                    src:"assets/img/avaliacoes/10.jpeg"
                 }
 
             ]
